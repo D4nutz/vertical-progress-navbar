@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --green: #2f888a;
+    --white: #cdd7e7;
+    --black: #171417;
+    --inactive: #575357;
+  }
+
+body{
+    background: var(--black)
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-nav-pages{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation{
+    width: auto;
+    height: 100%;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    border-radius: 1rem;
+    background-color: rgba(203, 214, 230, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.navigation-ul{
+    width: auto;
+    height: 100%;
+    list-style-type: none;
+    padding: 2rem;
+}
+
+.navigation-ul li{
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+}
+
+.countainer-pages{
+    width: 100%;
+    height: 100dvh;
+    overflow: auto;
+}
+
+.home,
+.contact,
+.about_me{
+    width: 100%;
+    height: 100dvh;
+}
+
+.navigation a{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    gap: 1rem;
+    position: relative;
+}
+
+.navigation .iconcontainer{
+    width: 1rem;
+    height: 3rem;
+    color: var(--black);
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.navigation .iconcontainer .fa-solid{
+    font-size: 1rem;
+    height: 1rem;
+    color: var(--white);
+    z-index: 2;
+    opacity: 0;
+}
+
+.navigation .text-scrollbar{
+    width: auto;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: .5rem;
+    position: absolute;
+    opacity: 0;
+    left: 140%;
+}
+
+.text-scrollbar p{
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    letter-spacing: -1px;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.navigation .text-scrollbar:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--white);
+    left: -5px;
+    top: 50%;
+    transform: translatey(-50%) rotate(45deg);
+    border-radius: 3px;
+}
+
+.navigation .clickatag:hover .text-scrollbar{
+    animation: showtext .5s linear;
+    opacity: 1;
+}
+
+.blob {
+    background: var(--inactive);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+    transform: scale(.7);
+}
+
+.navigation .clickatag:hover .blob {
+    background: var(--green);
+    transition: all 1s ease;
+}
+
+.blob-active{
+    background: var(--green);
+}
+
+.pulse{
+    animation: pulse 1s infinite;
+}
+
+.animatiepin{
+    animation: myAnim .5s linear;
+}
+
+.showtextnav{
+    animation: showtext .5s linear;
+ }
+
+.indicator{
+    width: 3px;
+    height: 0;
+    background-color: #2f888a;
+    position: absolute;
+    top: 18%;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 450px) {
+    .clickatag{
+        flex-direction: column;
+    }
+
+    .navigation{
+        width: 5rem;
+    }
+}
+
+@keyframes pulse {
+0% {
+    transform: scale(0.65);
+    box-shadow: 0 0 0 0 rgba(47, 136, 138, 1);
+}
+
+70% {
+    transform: scale(.7);
+    box-shadow: 0 0 0 10px rgba(47, 136, 138, 0);
+}
+
+100% {
+    transform: scale(0.65);
+    box-shadow: 0 0 0 0 rgba(47, 136, 138, 0);
+}
+}
+
+@keyframes myAnim {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 0;
+        scale: 0.7;
+	}
+
+	100% {
+		opacity: 1;
+        scale: 1;
+	}
+}
+
+@keyframes showtext {
+    0%{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
